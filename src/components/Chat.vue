@@ -12,14 +12,11 @@
 import MessageList from "./MessageList";
 import { composeAPI } from "@iota/core";
 const Converter = require("@iota/converter");
+import generateSeed from '../utils/generateSeed.js'
 
 const iota = composeAPI({
   provider: "https://nodes.devnet.thetangle.org:443"
 });
-
-// Use a random seed as there is no tokens being sent.
-const seed =
-  "AAEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX";
 
 // Create a variable for the address we will send too
 const address =
@@ -39,7 +36,8 @@ export default {
     return {
       new_message: "",
       messages: [],
-      isSending: false
+      isSending: false,
+      seed: ''
     };
   },
   methods: {
@@ -54,9 +52,9 @@ export default {
           message: message // The message converted into trytes
         }
       ];
-
+      console.log("seed", this.seed);
       iota
-        .prepareTransfers(seed, transfers)
+        .prepareTransfers(localStorage.getItem('seed'), transfers)
         .then(trytes => iota.sendTrytes(trytes, 3, 9))
         .then(bundle => {
           console.log("Transfer successfully sent");
@@ -91,6 +89,12 @@ export default {
     }
   },
   created() {
+    this.seed = localStorage.getItem('seed')
+    if(!this.seed) {
+      console.log("generate new seed")
+      this.seed = generateSeed();
+      this.seed = localStorage.setItem('seed', this.seed)
+    }
     this.fetchData();
   }
 };
