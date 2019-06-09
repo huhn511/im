@@ -30,6 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 li {
+  text-align: left;
   border: 2px solid #dedede;
   background-color: #f1f1f1;
   border-radius: 5px;

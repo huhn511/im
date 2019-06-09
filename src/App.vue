@@ -19,16 +19,37 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap');
 
+#app {
+  text-align: center;
+}
+
 html {
 font-family: 'Work Sans', sans-serif;
 }
+
 body {
     margin: 0px;
 }
-.main {
-  margin-top: 70px;
-  padding-top: 24px;
+
+h1 {
+  font-size: 62px;
+  line-height: 1.25;
 }
+h2 {
+  font-size: 42px;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 :root {
   --primary: #139B48;
   --primary-2: #A2CF6F;
