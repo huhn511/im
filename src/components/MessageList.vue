@@ -1,5 +1,5 @@
 <template>
-  <ul id="example-1">
+  <ul id="message_list">
     <li v-for="(message, index) in messages" v-bind:key="index">
       <p>{{ message.text }}</p>
       <span class="time-right">{{message.timestamp | formatTimestampToDate}}</span>
@@ -29,6 +29,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+ul {
+    padding-inline-start: 0;
+}
+
 li {
   text-align: left;
   border: 2px solid #dedede;
