@@ -7,7 +7,7 @@ Vue.config.productionTip = false
 
 Vue.filter('formatTimestampToDate', function (timestamp) {
   if (timestamp) {
-    return moment(timestamp * 1000).format('HH:mm, Do MMMM')
+    return moment(timestamp * 1000).format('HH:mm')
   }
 })
 

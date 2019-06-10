@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h1>IOTA Messenger</h1>
     <Chat />
   </div>
 </template>
@@ -12,6 +11,9 @@ export default {
   name: 'app',
   components: {
     Chat
+  },
+  methods: {
+    
   }
 }
 </script>
@@ -20,20 +22,29 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap');
 
 #app {
-  text-align: center;
-}
+  background-color: black;
+  background-image: radial-gradient(rgba(19, 155, 72, .42), black 120%
+  );
+  height: 100vh;
+  text-shadow: 0 0 1px var(--dark);
 
-html {
-font-family: 'Work Sans', sans-serif;
 }
 
 body {
+    color: var(--primary);
+    font: 1.3rem Inconsolata, monospace;
     margin: 0px;
+}
+
+::selection {
+  background: var(--primary);
+  text-shadow: none;
 }
 
 h1 {
   font-size: 62px;
   line-height: 1.25;
+  margin: 0;
 }
 h2 {
   font-size: 42px;
@@ -48,10 +59,11 @@ h4 {
 p {
   font-size: 16px;
   line-height: 1.5;
+  margin: 0;
 }
 
 :root {
-  --primary: #139B48;
+  --primary: rgb(19, 155, 72);
   --primary-2: #A2CF6F;
   --secondary: #0B5D9E;
   --secondary-2: #5AB0B2;
